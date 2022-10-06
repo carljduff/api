@@ -11,9 +11,9 @@ EXPOSE 8000
 
 # //creates new virtual env (line 12)
 ARG DEV=false
-RUN python3 -m venv /py && \ 
+RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
-    apk add --update --no--cache postgresql-client && \
+    apk add --update --no-cache postgresql-client && \
     #sets a virtual dependency package ...can use to remove packages later on
     apk add --update --no-cache --virtual .tmp-build-deps \
         build-base postgresql-dev musl-dev && \
